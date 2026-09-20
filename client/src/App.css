@@ -1,0 +1,169 @@
+/* Using App.css for styling and responsive design. */
+
+/* Stilyng fonts and colors across website*/
+:root {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  color: #203129;
+  background: #f6f1e8;
+}
+
+/* Using box sizing to keep padding and border inside of the element size*/
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body { margin: 0; background: #f6f1e8; }
+button, input, select { font: inherit; }
+.travel-app { min-height: 100vh; }
+
+/* Top Navigation styling */
+.top-nav {
+  max-width: 1180px;
+  margin: 0 auto;
+  padding: 1rem 1.25rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+/* Brand and navigation links size, gap and color */
+.brand { display: flex; align-items: center; gap: .55rem; font-weight: 800; color: #173e2c; }
+.brand-mark { color: #b3833b; font-size: 1.4rem; }
+.nav-links { display: flex; gap: 1.25rem; }
+.nav-links a { color: #435149; text-decoration: none; font-size: .9rem; font-weight: 600; }
+.nav-links a:hover { color: #7f2437; }
+
+/* Style image captured during my trip to Romania :X*/
+.hero {
+  max-width: 1180px;
+  min-height: 310px;
+  margin: 0 auto;
+  border-radius: 22px;
+  overflow: hidden;
+  background: url('/hero.jpg');
+  background-size: cover;
+background-position: center top;
+}
+.hero-overlay { /* Using linear gradient to make text to stand out */
+  min-height: 310px;
+  padding: 3.2rem 3rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  color: white;
+  background: linear-gradient(90deg, rgba(17,47,33,.78), rgba(17,47,33,.18));
+}
+
+/* Hero section styling for label, heading, text and button */
+.hero-label { margin: 0 0 .5rem; color: #f3ddb4; letter-spacing: .14em; font-size: .75rem; font-weight: 800; }
+.hero h1 {
+  margin: 0 0 .8rem;
+  color: white;
+  font-family: Georgia, serif;
+  font-size: clamp(2.6rem, 5vw, 4rem);
+  line-height: 1;
+}
+.hero-text { max-width: 560px; margin: 0 0 1.2rem; color: white; line-height: 1.6; font-size: 1rem; }
+.hero-button {
+  width: fit-content; padding: .8rem 1.1rem; border-radius: 8px;
+  background: #f0d7a7; color: #183d2c;
+  text-decoration: none; font-weight: 800;
+}
+.hero-button:hover { background: #e6c98e; } 
+
+/* Styling main area below the hero section */
+.main-content { max-width: 1180px; margin: 0 auto; padding: 1.5rem 1.25rem 2.5rem; } /* Three small cards showing total of journyes planned */
+.stats-row { display: grid; grid-template-columns: repeat(3, 1fr); gap: .8rem; margin-bottom: 1.25rem; }
+.stat-card { padding: 1rem; border: 1px solid #dfd5c7; border-radius: 12px; background: #fffdf9; text-align: center; }
+.stat-number { display: block; color: #7f2437; font-size: 1.55rem; font-weight: 800; }
+.stat-label { color: #6d716d; font-size: .8rem; }
+
+/*Styling form to stay on left side and journey list on right side of the page*/
+.app-body { display: grid; grid-template-columns: 360px 1fr; gap: 1.25rem; align-items: start; }
+.form-card, .list-card {
+  padding: 1.5rem;
+  border: 1px solid #dfd5c7;
+  border-radius: 16px;
+  background: #fffdf9;
+  box-shadow: 0 8px 24px rgba(44,54,47,.08);
+}
+
+.form-card { position: sticky; top: 1rem; }
+.form-card h2, .list-card h2 { margin: 0 0 .35rem; font-family: Georgia, serif; }
+.section-kicker { margin: 0 0 .45rem; color: #a36f30; letter-spacing: .12em; font-size: .72rem; font-weight: 800; }
+.section-copy { margin: 0 0 1.25rem; color: #71746f; font-size: .9rem; line-height: 1.5; }
+
+/* Form styling */
+.field-group { display: flex; flex-direction: column; gap: .4rem; margin-bottom: 1rem; }
+label { color: #4f5b53; font-size: .86rem; font-weight: 700; }
+input, select {
+  width: 100%;
+  padding: .78rem .85rem;
+  border: 1px solid #cfc5b7;
+  border-radius: 8px;
+  background: #fbf8f2;
+  color: #26372f;
+}
+input:focus, select:focus { outline: 2px solid #d8b36e; border-color: #b3833b; }
+
+/* Styling buttons and form message */
+.btn-primary, .btn-clear, .btn-delete { border: 0; border-radius: 8px; cursor: pointer; font-weight: 700; }
+.btn-primary { width: 100%; padding: .82rem; background: #7f2437; color: white; }
+.btn-primary:hover { background: #681c2c; }
+.form-message { margin: .9rem 0 0; color: #35684c; font-size: .83rem; text-align: center; }
+
+/* Journey list */
+.list-header, .trip-item, .trip-main, .trip-actions, .trip-meta { display: flex; align-items: center; }
+.list-header { justify-content: space-between; gap: 1rem; margin-bottom: 1rem; }
+.btn-clear { padding: .5rem .7rem; background: #efe8de; color: #715f4d; }
+.trip-list { display: flex; flex-direction: column; gap: .75rem; }
+.trip-item {
+  justify-content: space-between;
+  gap: 1rem;
+  padding: 1rem;
+  border: 1px solid #e5ddd2;
+  border-radius: 12px;
+  background: white;
+}
+.trip-item.visited { background: #f1f7f2; border-color: #bed2c3; } /* Styling visited trips */
+.trip-main { gap: .85rem; min-width: 0; }
+.visit-check { width: 18px; height: 18px; accent-color: #35684c; }
+.trip-details h3 { margin: 0 0 .4rem; font-size: 1rem; }
+.visited h3 { color: #8a918c; text-decoration: line-through; }
+.trip-meta { gap: .6rem; flex-wrap: wrap; color: #80827f; font-size: .76rem; }
+.badge { padding: .25rem .55rem; border-radius: 999px; font-weight: 700; }
+.trip-actions { gap: .65rem; }
+.status-text { color: #607068; font-size: .78rem; font-weight: 700; }
+.btn-delete { padding: .48rem .7rem; background: #faecee; color: #a5283f; }
+.empty-state { padding: 2.5rem 1rem; color: #8a8d89; text-align: center; }
+.empty-icon { display: block; font-size: 2rem; }
+
+/* Footer section */
+.footer {
+  padding: 1.5rem;
+  display: flex;
+  justify-content: center;
+  gap: .6rem;
+  color: #f8f0e4;
+  background: #173e2c;
+  font-size: .85rem;
+}
+/* Responsive design for tablets */
+@media (max-width: 760px) {
+  .nav-links { display: none; }
+  .hero { margin: 0 1rem; min-height: 340px; border-radius: 16px; }
+  .hero-overlay { min-height: 340px; padding: 2.4rem 1.5rem; }
+  .hero h1 { font-size: 2.7rem; }
+  .app-body { grid-template-columns: 1fr; }
+  .form-card { position: static; }
+  .trip-item { align-items: flex-start; flex-direction: column; }
+  .trip-actions { width: 100%; justify-content: space-between; }
+  .footer { flex-direction: column; align-items: center; }
+}
+
+/* Small phone layout */
+@media (max-width: 460px) {
+  .stats-row { grid-template-columns: 1fr; }
+  .main-content { padding-inline: 1rem; }
+  .hero h1 { font-size: 2.2rem; }
+  .hero-label { font-size: .65rem; }
+  .hero-text { font-size: .92rem; }
+}
